@@ -5,8 +5,9 @@
   "main": "",
   "scripts": {
     "test": "mocha",
+    "eslint": "eslint",
     "start": "node index.js"
-  },
+      },
   "author": {
     "name": "Sniazhana Matskevich"
   },
