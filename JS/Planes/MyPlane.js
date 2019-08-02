@@ -1,4 +1,4 @@
-const Plane = require('./Plane');
+/*const Plane = require('./Plane');
 
 class MyPlane  extends Plane {
 
@@ -9,3 +9,5 @@ class MyPlane  extends Plane {
 }
 
 //TODO implement it later
+
+*/
