@@ -10,6 +10,10 @@ class Airport {
         this.planes = planes;
     }
 
+    getPlanes() {                                           // moved up for code readability
+        return this.planes;
+    }
+
     getPassengerPlanes() {                                  // renamed
         let passengerPlanes = [];                           // renamed
         for (let p of this.planes) {                        // removed 'let pl = this.planes' - no need to declare p outside the 'for' loop; pl is a mistake at all.
@@ -20,16 +24,16 @@ class Airport {
         return passengerPlanes;
     }
 
-    getPassengerPlaneWithMaxPassengersCapacity() {          // moved closer to getPassengerPlanes
-        let max = [];
+    getPassengerPlaneWithMaxPassengersCapacity() {              
+        let max = this.getPassengerPlanes();
         let planeWithMaxCapacity = max[0];
         for (let i = 0; i < max.length; i++) {
-            if (max[i].getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {  // TODO: review the function
+            if (max[i].getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {  
                 planeWithMaxCapacity = max[i];
             }
         }
         return planeWithMaxCapacity;
-    }
+    }         
 
     getMilitaryPlanes() {
         let militaryPlanes = [];
@@ -37,11 +41,11 @@ class Airport {
             if (mplane instanceof MilitaryPlane) {
                 militaryPlanes.push(mplane);
             }
-        });
+        })
         return militaryPlanes;
     }
 
-    getTransportMilitaryPlanes(){
+    getTransportMilitaryPlanes() {
         let transportMilitaryPlanes = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
@@ -62,7 +66,7 @@ class Airport {
         }
         return bomberMilitaryPlanes;
     }
-                                                                                                // FIGHTER military planes are not used, to add?
+    
     getExperimentalPlanes() {
         let experimentalPlanes  = [];
         this.planes.forEach(ePlane => {
@@ -79,7 +83,7 @@ class Airport {
     }
 
     sortByMaxSpeed() {
-        this.planes.sort((a, b) => (a.getMS() > b.getMS()) ? 1 : -1);
+        this.planes.sort((a, b) => (a.getMaxSpeed() > b.getMaxSpeed()) ? 1 : -1);   // renamed 
         return this;
     }
 
@@ -87,11 +91,6 @@ class Airport {
         this.planes.sort((a, b) => (a.getMaxLoadCapacity() > b.getMaxLoadCapacity()) ? 1 : -1);     // corrected Min to Max 
         return this;
     }
-
-    getPlanes() {
-        return this.planes;
-    }
-
 
     static print(planes) {
         return JSON.stringify(planes);

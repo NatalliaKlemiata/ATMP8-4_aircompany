@@ -10,10 +10,6 @@ class MilitaryPlane extends Plane {
     getMilitaryType() {
         return this._militaryType;
     }
-
-    /* set MilitaryType(value) {
-        this._militaryType = value;
-     }*/
 }
 
 module.exports = MilitaryPlane;

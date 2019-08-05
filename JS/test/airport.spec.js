@@ -48,10 +48,8 @@ describe('Airport', () => {        //renamed
     it('should check passenger plane with max passenger capacity', () => {
         const airport = new Airport(planes);
         const expectedPlaneWithMaxPassengersCapacity = airport.getPassengerPlaneWithMaxPassengersCapacity();
-        console.log(expectedPlaneWithMaxPassengersCapacity);
-        assert.equal(expectedPlaneWithMaxPassengersCapacity == planeWithMaxPassengerCapacity);      // Why does this test fail?
+        assert.deepEqual(expectedPlaneWithMaxPassengersCapacity, planeWithMaxPassengerCapacity);      // rewrote assertion
     });
-
 
     it('should check passenger plane with max load capacity', () => {
         const airport = new Airport(planes);
@@ -77,16 +75,13 @@ describe('Airport', () => {        //renamed
             if (militaryPlane.getMilitaryType() === MilitaryType.BOMBER) {
                 flag = true;
             }
-            else{
-                assert.fail("Test failed!");
-            }
         }
         assert.equal(flag,true);            //added assertion
-    })
+    });
 
-    it('should check that all experimental planes has classification level higher than unclassified', () => {
+    it('should check that all experimental planes have classification level higher than Unclassified', () => {
         const airport = new Airport(planes);
-        const experimentalPlanes  = airport.getExperimentalPlanes ();   //renamed variable
+        const experimentalPlanes  = airport.getExperimentalPlanes();   //renamed variable
         let hasUnclassifiedPlanes  = false;
         for (const experimentalPlane of experimentalPlanes) {
             if (experimentalPlane.classificationLevel === ClassificationLevel.UNCLASSIFIED) {
