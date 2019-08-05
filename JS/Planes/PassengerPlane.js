@@ -10,10 +10,6 @@ class PassengerPlane extends Plane {
     getPassengersCapacity() {
         return this._passengersCapacity;
     }
-
-    /* set passengersCapacity(value) {
-        this._passengersCapacity = value;
-    } */
 }
 
 module.exports = PassengerPlane;
