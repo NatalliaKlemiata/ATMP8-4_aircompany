@@ -20,7 +20,7 @@ class Plane {
     }
 
     getMaxLoadCapacity() {                      // was incorrect name "min..."
-    return this.maxLoadCapacity;
+        return this.maxLoadCapacity;
     }
 }
 

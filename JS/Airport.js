@@ -37,7 +37,6 @@ class Airport {
             if (mplane instanceof MilitaryPlane) {
                 militaryPlanes.push(mplane);
             }
-            //else                                          - add error hanlding??            
         });
         return militaryPlanes;
     }
@@ -46,8 +45,8 @@ class Airport {
         let transportMilitaryPlanes = [];
         let militaryPlanes = this.getMilitaryPlanes();
         for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].getMilitaryType() === MilitaryType.TYPE_TRANSPORT) {          // Changed == to ===; Sources such as D. Crockford and MDN both advise that only triple
-                transportMilitaryPlanes.push(militaryPlanes[i]);                                // Why no definition is found for getMilitaryType() ?
+            if (militaryPlanes[i].getMilitaryType() === MilitaryType.TRANSPORT) {          // removed TYPE_; Changed == to ===; Sources such as D. Crockford and MDN both advise that only triple
+                transportMilitaryPlanes.push(militaryPlanes[i]);                           // Why no definition is found for getMilitaryType() ?
             }
         }
         return transportMilitaryPlanes;
@@ -63,7 +62,7 @@ class Airport {
         }
         return bomberMilitaryPlanes;
     }
-                                                                                                // TYPE_FIGHTER military planes are not used, to add?
+                                                                                                // FIGHTER military planes are not used, to add?
     getExperimentalPlanes() {
         let experimentalPlanes  = [];
         this.planes.forEach(ePlane => {
@@ -79,17 +78,13 @@ class Airport {
         return this;
     }
 
-    /**
-     * Sorts by max speed
-     * @return Airport
-     */
     sortByMaxSpeed() {
         this.planes.sort((a, b) => (a.getMS() > b.getMS()) ? 1 : -1);
         return this;
     }
 
     sortByMaxLoadCapacity() {
-        this.planes.sort((a, b) => (a.getMinLoadCapacity() > b.getMinLoadCapacity()) ? 1 : -1);
+        this.planes.sort((a, b) => (a.getMaxLoadCapacity() > b.getMaxLoadCapacity()) ? 1 : -1);     // corrected Min to Max 
         return this;
     }
 

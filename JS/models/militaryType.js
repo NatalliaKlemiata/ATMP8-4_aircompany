@@ -1,7 +1,7 @@
 const MilitaryType = {
-    TYPE_FIGHTER: 'Fighter',
-    TYPE_BOMBER: 'Bomber',
-    TYPE_TRANSPORT: 'Transport'
+    FIGHTER: 'FIGHTER',         // removed 'TYPE_'from each for consistency with Experimental types and classification levels, and the tests (less rework)
+    BOMBER: 'BOMBER',           // upper case for consistency
+    TRANSPORT: 'TRANSPORT'
 };
 
 module.exports =  MilitaryType;
