@@ -1,4 +1,4 @@
-//const chai = require('chai');           //added as per the webinar, by ESLint marks as error - to be discussed
+// const chai = require('chai');           //added as per the webinar, by ESLint marks as error - to be discussed
 const assert = require('chai').assert;
 
 //const Plane = require('../Planes/Plane');         //unused variable
