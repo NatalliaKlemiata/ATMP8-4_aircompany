@@ -36,10 +36,9 @@ class Airport {
     }         
 
     getMilitaryPlanes() {
-        let militaryPlanes = [];
-        this.planes.forEach(mplane => {                     // which implementation suits here better, forEach or for/if?
+         let militaryPlanes = this.planes.filter(mplane => {                     // which implementation suits here better, forEach or for/if?
             if (mplane instanceof MilitaryPlane) {
-                militaryPlanes.push(mplane);
+                return mplane;
             }
         })
         return militaryPlanes;
@@ -78,7 +77,14 @@ class Airport {
     }
 
     sortByMaxDistance() {
-        this.planes.sort((a, b) => (a.getMaxFlightDistance() > b.getMaxFlightDistance()) ? 1 : -1); // corrected method name after renaming in Plane
+        //this.planes.sort((a, b) => (a.getMaxFlightDistance() > b.getMaxFlightDistance()) ? 1 : -1); // corrected method name after renaming in Plane
+        this.planes.sort((a, b) => {
+            if (a.getMaxFlightDistance() > b.getMaxFlightDistance()) {
+                return 1;
+            } else {
+                return -1;
+            }
+        });
         return this;
     }
 
